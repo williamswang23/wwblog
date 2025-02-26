@@ -6,7 +6,35 @@ draft = false
 
 # 硬件，优化和语言
 
-Deepseek 今天开源了deep GEMM，一个对矩阵计算加速的library， 可惜只支持H系列GPU，aws的P5 48x大约100美元/小时，也有便宜的，大约2美元/小时/GPU， 对大多数人来说测试比较麻烦。 我做了一个类比的测试，可以从一个侧面感受到CPU， GPU， 以及框架是否优化情况下的差异。 采用LLM模型常见的矩阵计算为例， 对12288-D 的fp32精度matrix进行乘法计算， 迭代50次。 分别测试了M4 pro-14core CPU, GPU, nvidia T4 cuda。 从结果上看到速度差异非常大： 其中最快的是基于cuda的T4，只用了0.6秒。 python+M4 pro CPU耗时 200秒。 因为python在macOS没有办法直接调用GPU加速，因此采取了CPP通过mental调用macOS的GPU， 耗时450+秒。从中可以看出，对于矩阵计算来说，Nvidia的优势超越了3个量级。那为什么macOS中通过CPP调用GPU加速依然落后于纯CPU计算呢？可能的原因之一在于优化， 通过CPP调用GPU的过程是完全手搓的，而pythons的numpy库经过了深度的优化， 我猜测可能是原因之一。 从中可以看出，硬件是决定性的，其次才是优化。最后是语言。
+DeepSeek 今日开源了 Deep GEMM，一个专注于矩阵计算加速的库。不过，该库目前仅支持 H 系列 GPU，这对普通用户来说限制较大。例如，AWS 的 P5 48x 实例价格高达 约 100 美元/小时，即使是较便宜的选项，也在 约 2 美元/小时/GPU，测试成本仍然较高。
+
+为了直观感受 CPU、GPU 以及不同计算框架优化的影响，我进行了一个简单的对比测试。
+
+测试方法
+
+选取 LLM 计算中常见的矩阵运算，使用 12288 维的 FP32 矩阵 进行 50 次乘法迭代，并分别在以下硬件与计算环境上进行测试：
+	•	M4 Pro (14-core) CPU + Python
+	•	M4 Pro GPU（通过 C++ + Metal 调用）
+	•	NVIDIA T4 + CUDA
+
+测试结果
+
+计算耗时如下：
+	•	NVIDIA T4 + CUDA：0.6 秒（最快）
+	•	M4 Pro CPU + Python：200 秒
+	•	M4 Pro GPU + C++ + Metal：450+ 秒（最慢）
+
+分析与结论
+	1.	NVIDIA 在矩阵计算方面的优势极为明显，T4 + CUDA 的计算速度相比 Python + CPU 快了 3 个数量级。
+	2.	macOS 通过 C++ + Metal 调用 GPU 反而比 CPU 更慢，可能的原因包括：
+	•	优化程度不同：Python 的 numpy 库经过深度优化，而手动调用 GPU 计算可能缺乏相应的优化。
+	•	Metal API 调用开销：C++ 直接调用 GPU 计算时，可能存在较大的初始化或计算开销。
+	3.	影响计算性能的主要因素依次是：硬件 > 算法优化 > 编程语言。
+	•	硬件 是决定性因素，强大的 GPU 在矩阵计算上的提升最为显著。
+	•	优化 影响巨大，经过深度优化的计算框架（如 numpy 或 CUDA）能带来数量级的性能提升。
+	•	编程语言 影响相对较小，Python 通过 numpy 仍能比未经优化的 C++ GPU 代码快。
+
+综上所述，在高性能矩阵计算领域，GPU + 充分优化的计算框架（如 CUDA）是最佳选择，而 GPU 调用方式与优化深度决定了实际性能表现。
 
 deepGEMM的配置要求：
 ![deepgemmrequirement](https://i.imgur.com/sSzSsvD.png)
