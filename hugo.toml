@@ -10,3 +10,6 @@ canonifyURLs = true
   author = "Williams Wang"
   description = "Williams Wang Blog"
 
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true

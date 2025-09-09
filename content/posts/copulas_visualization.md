@@ -3,6 +3,7 @@ title = 'Copulas_visualization'
 date = 2025-09-09T14:52:20+08:00
 draft = false 
 +++
+{{< math >}}
 
 # 一次性搞懂Copula
 
