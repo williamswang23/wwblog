@@ -8,10 +8,12 @@ draft = false
 # 一次性搞懂Copula
 
 在量化金融与统计建模中，相关性不等于尾部联动。
+
 为了更直观地说明这一点，我开发了一个交互式网页工具：
-•	一维演示：通过概率积分变换（PIT），展示任何连续随机变量都能被“标准化”为 U(0,1) 分布。
-•	二维扩展：在相同边际下对比 Gaussian Copula 与 t-Copula，直观展示尾部依赖的差异。Gaussian Copula 在极端区无尾部共振，而 t-Copula 在四角呈现明显聚集。
-•	统计指标：同时给出 Pearson r、Spearman $\rho$、Kendall $\tau$ 及尾部依赖系数 $\lambda_U$,$\lambda_L$，让“相关性 vs 尾部风险”的差别一目了然。
+
+- 一维演示：通过概率积分变换（PIT），展示任何连续随机变量都能被“标准化”为 U(0,1) 分布。
+- 二维扩展：在相同边际下对比 Gaussian Copula 与 t-Copula，直观展示尾部依赖的差异。Gaussian Copula 在极端区无尾部共振，而 t-Copula 在四角呈现明显聚集。
+- 统计指标：同时给出 Pearson r、Spearman $\rho$、Kendall $\tau$ 及尾部依赖系数 $\lambda_U$,$\lambda_L$，让“相关性 vs 尾部风险”的差别一目了然。
 	
 👉 本视频展示了网页的动态效果，帮助你快速理解 边际洗平 ≠ 独立，Copula 才能捕捉真正的依赖结构。[一次性搞懂copula](https://www.xiaohongshu.com/discovery/item/68bc16bb000000001d0132b4?source=webshare&xhsshare=pc_web&xsec_token=AB9L6XO84OH1dRmkzRO_2RauwMjn_BE_DzXz83YTjoLTE=&xsec_source=pc_share)
 	
