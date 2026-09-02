@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="780" viewBox="0 0 1400 780" role="img" aria-label="Recent Yield-move Concentration">
+<rect x="0" y="0" width="1400" height="780" fill="#FFFFFF"/>
+<text x="52.0" y="62.0" text-anchor="start" font-family="Avenir Next, Arial, sans-serif" font-size="34" font-weight="700" fill="#0F2747">Recent Yield-move Concentration</text>
+<text x="52.0" y="101.0" text-anchor="start" font-family="Avenir Next, Arial, sans-serif" font-size="21" font-weight="400" fill="#66727D">Average absolute daily change by tenor over the packet&#x27;s recent observation window.</text>
+<text x="1342.0" y="58.0" text-anchor="end" font-family="Avenir Next, Arial, sans-serif" font-size="19" font-weight="700" fill="#0F2747">WWR</text>
+<line x1="190.0" y1="156" x2="190.0" y2="668" stroke="#DCE2E7" stroke-width="1"/>
+<text x="190.0" y="702.0" text-anchor="middle" font-family="Avenir Next, Arial, sans-serif" font-size="18" font-weight="400" fill="#66727D">0</text>
+<line x1="412.0" y1="156" x2="412.0" y2="668" stroke="#DCE2E7" stroke-width="1"/>
+<text x="412.0" y="702.0" text-anchor="middle" font-family="Avenir Next, Arial, sans-serif" font-size="18" font-weight="400" fill="#66727D">1</text>
+<line x1="634.0" y1="156" x2="634.0" y2="668" stroke="#DCE2E7" stroke-width="1"/>
+<text x="634.0" y="702.0" text-anchor="middle" font-family="Avenir Next, Arial, sans-serif" font-size="18" font-weight="400" fill="#66727D">2</text>
+<line x1="856.0" y1="156" x2="856.0" y2="668" stroke="#DCE2E7" stroke-width="1"/>
+<text x="856.0" y="702.0" text-anchor="middle" font-family="Avenir Next, Arial, sans-serif" font-size="18" font-weight="400" fill="#66727D">3</text>
+<line x1="1078.0" y1="156" x2="1078.0" y2="668" stroke="#DCE2E7" stroke-width="1"/>
+<text x="1078.0" y="702.0" text-anchor="middle" font-family="Avenir Next, Arial, sans-serif" font-size="18" font-weight="400" fill="#66727D">4</text>
+<line x1="1300.0" y1="156" x2="1300.0" y2="668" stroke="#DCE2E7" stroke-width="1"/>
+<text x="1300.0" y="702.0" text-anchor="middle" font-family="Avenir Next, Arial, sans-serif" font-size="18" font-weight="400" fill="#66727D">5</text>
+<text x="745.0" y="735.0" text-anchor="middle" font-family="Avenir Next, Arial, sans-serif" font-size="18" font-weight="400" fill="#66727D">Average absolute daily move (bps)</text>
+<text x="172.0" y="200.1" text-anchor="end" font-family="Avenir Next, Arial, sans-serif" font-size="21" font-weight="700" fill="#25313C">10Y</text>
+<rect x="190" y="166.0" width="1110" height="52.2" fill="#EAF0F5" rx="5"/>
+<rect x="190" y="166.0" width="910.2" height="52.2" fill="#6F849B" rx="5"/>
+<text x="1112.2" y="199.1" text-anchor="start" font-family="Avenir Next, Arial, sans-serif" font-size="18" font-weight="700" fill="#6F849B">4.10</text>
+<text x="172.0" y="264.4" text-anchor="end" font-family="Avenir Next, Arial, sans-serif" font-size="21" font-weight="700" fill="#25313C">7Y</text>
+<rect x="190" y="230.2" width="1110" height="52.2" fill="#EAF0F5" rx="5"/>
+<rect x="190" y="230.2" width="888.0" height="52.2" fill="#6F849B" rx="5"/>
+<text x="1090.0" y="263.4" text-anchor="start" font-family="Avenir Next, Arial, sans-serif" font-size="18" font-weight="700" fill="#6F849B">4.00</text>
+<text x="172.0" y="328.6" text-anchor="end" font-family="Avenir Next, Arial, sans-serif" font-size="21" font-weight="700" fill="#25313C">5Y</text>
+<rect x="190" y="294.5" width="1110" height="52.2" fill="#EAF0F5" rx="5"/>
+<rect x="190" y="294.5" width="854.7" height="52.2" fill="#0F2747" rx="5"/>
+<text x="1056.7" y="327.6" text-anchor="start" font-family="Avenir Next, Arial, sans-serif" font-size="18" font-weight="700" fill="#0F2747">3.85</text>
+<text x="172.0" y="392.9" text-anchor="end" font-family="Avenir Next, Arial, sans-serif" font-size="21" font-weight="700" fill="#25313C">3Y</text>
+<rect x="190" y="358.8" width="1110" height="52.2" fill="#EAF0F5" rx="5"/>
+<rect x="190" y="358.8" width="832.5" height="52.2" fill="#0F2747" rx="5"/>
+<text x="1034.5" y="391.9" text-anchor="start" font-family="Avenir Next, Arial, sans-serif" font-size="18" font-weight="700" fill="#0F2747">3.75</text>
+<text x="172.0" y="457.1" text-anchor="end" font-family="Avenir Next, Arial, sans-serif" font-size="21" font-weight="700" fill="#25313C">30Y</text>
+<rect x="190" y="423.0" width="1110" height="52.2" fill="#EAF0F5" rx="5"/>
+<rect x="190" y="423.0" width="810.3" height="52.2" fill="#6F849B" rx="5"/>
+<text x="1012.3" y="456.1" text-anchor="start" font-family="Avenir Next, Arial, sans-serif" font-size="18" font-weight="700" fill="#6F849B">3.65</text>
+<text x="172.0" y="521.4" text-anchor="end" font-family="Avenir Next, Arial, sans-serif" font-size="21" font-weight="700" fill="#25313C">2Y</text>
+<rect x="190" y="487.2" width="1110" height="52.2" fill="#EAF0F5" rx="5"/>
+<rect x="190" y="487.2" width="799.2" height="52.2" fill="#0F2747" rx="5"/>
+<text x="1001.2" y="520.4" text-anchor="start" font-family="Avenir Next, Arial, sans-serif" font-size="18" font-weight="700" fill="#0F2747">3.60</text>
+<text x="172.0" y="585.6" text-anchor="end" font-family="Avenir Next, Arial, sans-serif" font-size="21" font-weight="700" fill="#25313C">20Y</text>
+<rect x="190" y="551.5" width="1110" height="52.2" fill="#EAF0F5" rx="5"/>
+<rect x="190" y="551.5" width="788.1" height="52.2" fill="#6F849B" rx="5"/>
+<text x="990.1" y="584.6" text-anchor="start" font-family="Avenir Next, Arial, sans-serif" font-size="18" font-weight="700" fill="#6F849B">3.55</text>
+<text x="172.0" y="649.9" text-anchor="end" font-family="Avenir Next, Arial, sans-serif" font-size="21" font-weight="700" fill="#25313C">1Y</text>
+<rect x="190" y="615.8" width="1110" height="52.2" fill="#EAF0F5" rx="5"/>
+<rect x="190" y="615.8" width="566.1" height="52.2" fill="#6F849B" rx="5"/>
+<text x="768.1" y="648.9" text-anchor="start" font-family="Avenir Next, Arial, sans-serif" font-size="18" font-weight="700" fill="#6F849B">2.55</text>
+<line x1="52" y1="718" x2="1348" y2="718" stroke="#DCE2E7" stroke-width="1"/>
+<text x="52.0" y="752.0" text-anchor="start" font-family="Avenir Next, Arial, sans-serif" font-size="17" font-weight="400" fill="#66727D">Source: US Rates LLM Packet heatmap summary. Each tenor has 20 observations.</text>
+<text x="1348.0" y="752.0" text-anchor="end" font-family="Avenir Next, Arial, sans-serif" font-size="17" font-weight="600" fill="#0F2747">WILLIAMS WANG RESEARCH</text>
+</svg>
