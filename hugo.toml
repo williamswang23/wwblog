@@ -1,15 +1,38 @@
-baseURL = "https://williamswang.win"
-languageCode = "en-us"
-title = "Williams Wang Site"
-theme = "ananke"
+baseURL = "https://williamswang.win/"
+locale = "zh-CN"
+defaultContentLanguage = "zh-cn"
+timeZone = "Asia/Singapore"
+title = "Williams Wang Research"
+enableRobotsTXT = true
+summaryLength = 42
 
-relativeURLs = true
-canonifyURLs = true
+[pagination]
+  pagerSize = 9
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
 
 [params]
   author = "Williams Wang"
-  description = "Williams Wang Blog"
+  siteName = "Williams Wang Research"
+  description = "独立市场研究：宏观、市场结构、衍生品与科技产业。"
+  tagline = "Evidence before conviction."
+  discordURL = "https://discord.williamswang.win"
+  defaultImage = "/images/brand/png/WWR_logo_primary_horizontal_transparent.png"
 
 [markup]
   [markup.goldmark.renderer]
     unsafe = true
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 3
+    ordered = false
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
+
+# 原 Ananke 子模块保留在仓库中，但新版使用项目级模板，避免覆盖历史主题改动。

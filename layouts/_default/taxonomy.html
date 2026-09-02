@@ -1,0 +1,14 @@
+{{ define "main" }}
+<header class="page-hero">
+  <div class="shell narrow">
+    <p class="eyebrow">Research collection</p>
+    <h1>{{ .Title }}</h1>
+  </div>
+</header>
+<section class="section-block">
+  <div class="shell report-grid">
+    {{ range .Pages }}{{ partial "report-card.html" . }}{{ end }}
+  </div>
+</section>
+{{ end }}
+

@@ -1,0 +1,21 @@
+{{ define "main" }}
+<header class="page-hero">
+  <div class="shell narrow">
+    <p class="eyebrow">Research areas</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}<div class="page-intro prose">{{ . }}</div>{{ end }}
+  </div>
+</header>
+<section class="section-block section-tint">
+  <div class="shell series-grid">
+    {{ range .Pages.ByWeight }}
+    <a class="series-card" href="{{ .RelPermalink }}">
+      <span>Research area</span>
+      <h2>{{ .Title }}</h2>
+      <p>{{ .Description }}</p>
+    </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+

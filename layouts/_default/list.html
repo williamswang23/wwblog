@@ -1,0 +1,25 @@
+{{ define "main" }}
+<header class="page-hero">
+  <div class="shell narrow">
+    <p class="eyebrow">{{ if eq .Section "research" }}Public research{{ else }}Archive{{ end }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}<div class="page-intro prose">{{ . }}</div>{{ end }}
+  </div>
+</header>
+<section class="section-block">
+  <div class="shell">
+    {{ if .Pages }}
+    <div class="report-grid">
+      {{ range .Paginator.Pages }}{{ partial "report-card.html" . }}{{ end }}
+    </div>
+    {{ template "_internal/pagination.html" . }}
+    {{ else }}
+    <div class="empty-state">
+      <h2>内容正在准备中</h2>
+      <p>新版栏目已建立，后续经手动选择的报告会发布在这里。</p>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+

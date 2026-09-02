@@ -1,0 +1,51 @@
+{{ define "main" }}
+{{ $isReport := or (eq .Section "research") (eq .Section "posts") }}
+<article class="article">
+  <header class="article-header">
+    <div class="shell article-shell">
+      <nav class="breadcrumbs" aria-label="面包屑">
+        <a href="/">首页</a>
+        {{ if .Section }}<span>/</span><a href="/{{ .Section }}/">{{ if eq .Section "research" }}研究{{ else }}归档{{ end }}</a>{{ end }}
+      </nav>
+      <p class="eyebrow">{{ .Params.series | default (cond $isReport "Research report" site.Title) }}</p>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="article-deck">{{ . }}</p>{{ end }}
+      {{ if $isReport }}
+      <div class="article-meta">
+        <span>Williams Wang</span>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年01月02日" }}</time>
+        {{ with .ReadingTime }}<span>约 {{ . }} 分钟阅读</span>{{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </header>
+  <div class="shell article-layout">
+    <aside class="article-rail">
+      {{ if $isReport }}
+      <p class="rail-label">本页目录</p>
+      {{ .TableOfContents }}
+      {{ end }}
+    </aside>
+    <div class="article-body prose">
+      {{ if eq .Section "research" }}
+      <div class="report-notice">
+        <strong>公开研究报告</strong>
+        <span>本文完整版本以本页为准。讨论与未来专属报告入口见文末。</span>
+      </div>
+      {{ end }}
+      {{ .Content }}
+      {{ if $isReport }}
+      <hr>
+      <p class="article-disclaimer">本文仅用于研究交流，不构成投资建议。市场观点具有时点性，请结合原始资料与自身风险约束独立判断。</p>
+      {{ end }}
+    </div>
+  </div>
+</article>
+{{ if $isReport }}
+<section class="section-block section-compact">
+  <div class="shell">
+    {{ partial "discord-cta.html" (dict "title" "围绕这份研究继续讨论") }}
+  </div>
+</section>
+{{ end }}
+{{ end }}

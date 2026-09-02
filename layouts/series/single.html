@@ -1,0 +1,22 @@
+{{ define "main" }}
+<header class="page-hero">
+  <div class="shell narrow">
+    <p class="eyebrow">{{ .Params.cadence | default "Research series" }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}<div class="page-intro prose">{{ . }}</div>{{ end }}
+  </div>
+</header>
+<section class="section-block">
+  <div class="shell">
+    {{ $pages := where site.RegularPages "Params.series" .Title }}
+    {{ if $pages }}
+    <div class="report-grid">{{ range $pages }}{{ partial "report-card.html" . }}{{ end }}</div>
+    {{ else }}
+    <div class="empty-state">
+      <h2>该栏目暂未发布公开报告</h2>
+      <p>后续报告会根据栏目名称自动归入这里。</p>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

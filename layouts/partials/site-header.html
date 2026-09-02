@@ -1,0 +1,15 @@
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="/" aria-label="Williams Wang Research 首页">
+      <img src="/images/brand/WWR_logo_header_compact_transparent.svg" alt="Williams Wang Research">
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <a class="{{ if eq .Section "research" }}is-active{{ end }}" href="/research/">研究</a>
+      <a class="{{ if eq .Section "series" }}is-active{{ end }}" href="/series/">定期栏目</a>
+      <a class="{{ if eq .Section "areas" }}is-active{{ end }}" href="/areas/">研究领域</a>
+      <a class="{{ if eq .RelPermalink "/methods/" }}is-active{{ end }}" href="/methods/">方法</a>
+      <a class="{{ if eq .RelPermalink "/about/" }}is-active{{ end }}" href="/about/">关于</a>
+    </nav>
+    <a class="button button-small" href="/join/">加入 Discord</a>
+  </div>
+</header>
