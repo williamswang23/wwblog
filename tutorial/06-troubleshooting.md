@@ -178,6 +178,7 @@ Hugo 通常会指出文件和行号。
 可能原因：
 
 - 没有加入 math shortcode；
+- `hugo.toml` 没有启用 Goldmark passthrough，导致 `\[...\]` 或 `\(...\)` 的反斜杠在构建时被剥离；
 - MathJax CDN 无法加载；
 - 公式放在 code 或 pre 中。
 
@@ -185,7 +186,15 @@ Hugo 通常会指出文件和行号。
 
     {{< math >}}
 
-然后刷新浏览器并查看开发者控制台是否有 CDN 错误。
+检查 `hugo.toml` 是否包含：
+
+    [markup.goldmark.extensions.passthrough]
+      enable = true
+      [markup.goldmark.extensions.passthrough.delimiters]
+        block = [['\[', '\]'], ['$$', '$$']]
+        inline = [['\(', '\)']]
+
+重新构建后，先确认生成的文章 HTML 仍保留公式分隔符，再刷新浏览器并查看开发者控制台是否有 CDN 错误。若 HTML 已保留分隔符但浏览器仍显示原文，问题通常在 MathJax 加载或执行层。
 
 ## 11. Discord 按钮没有到达邀请页
 
@@ -198,6 +207,7 @@ Hugo 通常会指出文件和行号。
     curl -I -L --max-time 20 https://discord.williamswang.win
 
 站内按钮应先到 /join/，/join/ 的外部按钮再使用 discordURL。
+
 
 ## 12. Cloudflare 构建失败
 

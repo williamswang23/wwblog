@@ -22,6 +22,11 @@ summaryLength = 42
   defaultImage = "/images/brand/png/WWR_logo_primary_horizontal_transparent.png"
 
 [markup]
+  [markup.goldmark.extensions.passthrough]
+    enable = true
+    [markup.goldmark.extensions.passthrough.delimiters]
+      block = [['\[', '\]'], ['$$', '$$']]
+      inline = [['\(', '\)']]
   [markup.goldmark.renderer]
     unsafe = true
   [markup.tableOfContents]

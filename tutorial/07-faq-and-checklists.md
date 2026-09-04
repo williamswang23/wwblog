@@ -70,6 +70,8 @@
 
 然后使用 MathJax 的 $...$ 或 $$...$$。
 
+站点配置同时支持 `\(...\)` 和 `\[...\]`。验收时必须确认构建后的文章 HTML 保留分隔符，并在浏览器中生成 MathJax 元素。
+
 ### Q14：如何在报告中加入 Discord 提示？
 
     {{< discord-note title="继续讨论" >}}
@@ -208,4 +210,3 @@ Cloudflare 部署成功只是第一步，还要打开正式 URL，检查图片�
 搜索仍为草稿的报告：
 
     rg -n '^draft = true' content/research
-
