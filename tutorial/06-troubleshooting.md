@@ -222,6 +222,13 @@ Hugo 通常会指出文件和行号。
 
 不要通过手工上传旧 public 绕过模板错误，应修复源文件并重新构建。
 
+已知故障特征：
+
+- `can't evaluate field Locale in type *langs.Language`：Cloudflare 正在使用过旧的 Hugo。项目模板应使用兼容的 `site.Language.Lang`，同时仍须把 Production 与 Preview 的 `HUGO_VERSION` 固定为 `0.165.0`。
+- Git 构建显示成功，但页面出现裸 `[`、`]` 或公式普通文本：不要把它视为构建恢复。Hugo 0.118.2 不足以完整保留本站使用的 LaTeX 分隔符；检查 Cloudflare 构建变量，并确认页面存在 `mjx-container`。
+
+直接部署只用于把同一 commit、同一份已验证的隔离构建恢复到生产，不替代 Git 构建配置修复。完成变量修复后，必须再触发一次 Git 自动构建并复验公式。
+
 ## 13. private 页面仍然能访问
 
 这是当前设计。private = true 只生成：

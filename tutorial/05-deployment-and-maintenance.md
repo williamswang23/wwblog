@@ -27,14 +27,14 @@ flowchart LR
 
 ## 2. Cloudflare Pages 应使用的设置
 
-建议配置：
+必需配置：
 
 - Build command：hugo --gc --minify
 - Build output directory：public
 - Environment variable：HUGO_VERSION=0.165.0
 - Production branch：需要在后台确认
 
-如果启用 Preview 环境，也应为 Preview 配置相同的 HUGO_VERSION。
+Production 与 Preview 都必须配置相同的 `HUGO_VERSION`。这不是单纯的版本偏好：当前站点依赖 Goldmark passthrough 保留 `\\[...\\]` 与 `\\(...\\)` 公式分隔符；Cloudflare v2 构建镜像默认的 Hugo 0.118.2 会丢失其中一部分分隔符，即使构建退出码为 0，读者端公式仍会退化为普通文本。
 
 ## 3. 为什么要固定 Hugo 版本
 
@@ -46,6 +46,8 @@ Cloudflare Pages 默认 Hugo 版本可能随构建镜像变化。固定 HUGO_VER
 - 无预警构建漂移。
 
 本地升级 Hugo 后，不要立即修改 Cloudflare 版本。先完成本地构建和预览，再同步 HUGO_VERSION。
+
+修改 Cloudflare 构建变量后，应由一次新的 Git 提交触发自动构建，并同时验收：部署来源 commit、生成 HTML 中的公式分隔符数量，以及浏览器中的 MathJax DOM。不要只把 Cloudflare 的“成功”状态当作公式正确的证据。
 
 ## 4. 标准发布流程
 
@@ -192,4 +194,3 @@ static/_headers 当前设置：
 - 更新方法说明；
 - 检查 Hugo 与 Cloudflare 版本，但不要无验证升级；
 - 检查图片体积和页面性能。
-
