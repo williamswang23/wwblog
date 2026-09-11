@@ -987,6 +987,28 @@ a {
   color: var(--white);
 }
 
+.visitor-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-top: 28px;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.visitor-stats[hidden] {
+  display: none;
+}
+
+.visitor-stats-note {
+  font-size: 11px;
+}
+
+.visitor-stats a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .footer-meta {
   display: flex;
   justify-content: space-between;

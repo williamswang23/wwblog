@@ -21,6 +21,10 @@ summaryLength = 42
   discordURL = "https://discord.williamswang.win"
   defaultImage = "/images/brand/png/WWR_logo_primary_horizontal_transparent.png"
 
+  [params.visitorStats]
+    enabled = true
+    since = "2026-09-11"
+
 [markup]
   [markup.goldmark.extensions.passthrough]
     enable = true

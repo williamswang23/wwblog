@@ -61,5 +61,9 @@
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "site-footer.html" . }}
+  {{ if and site.Params.visitorStats.enabled (not hugo.IsServer) }}
+    {{ $counter := resources.Get "js/visitor-stats.js" | minify | fingerprint }}
+    <script id="visitor-stats-loader" data-cfasync="false" defer src="{{ $counter.RelPermalink }}" integrity="{{ $counter.Data.Integrity }}" data-host="{{ (urls.Parse site.BaseURL).Hostname }}"></script>
+  {{ end }}
 </body>
 </html>

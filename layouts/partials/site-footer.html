@@ -13,6 +13,13 @@
       <a href="/join/">Discord 社群</a>
     </div>
   </div>
+  {{ if and .IsHome site.Params.visitorStats.enabled }}
+  <div id="visitor-stats" class="shell visitor-stats" hidden aria-live="polite">
+    <span id="busuanzi_container_site_pv">累计浏览 <span id="busuanzi_value_site_pv"></span> 次</span>
+    <span id="busuanzi_container_site_uv">访客数（估计）<span id="busuanzi_value_site_uv"></span></span>
+    <span class="visitor-stats-note">{{ site.Params.visitorStats.since }} 起接入统计 · <a href="https://busuanzi.ibruce.info/" target="_blank" rel="noopener noreferrer">不蒜子</a></span>
+  </div>
+  {{ end }}
   <div class="shell footer-meta">
     <span>© {{ now.Year }} Williams Wang Research</span>
     <span>内容仅供研究交流，不构成投资建议。</span>
