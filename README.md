@@ -116,3 +116,21 @@ Williams Wang Research 的 Hugo 静态站点。博客是公开报告的完整来
 - 数据返回后才显示主页统计行；失败或 8 秒内未返回有效数字时保持隐藏，其他内容正常使用。非主页也会计数，但不显示数字。
 - 不蒜子是外部免费服务，存在网络、拦截、去重口径及服务可用性限制；与 Cloudflare 后台数字无需一致。
 - 本地验证应模拟统计响应，避免为测试反复增加线上计数。上线后检查主页数字和文章页请求各一次。
+
+## Mermaid 图表
+
+文章中直接使用标注为 `mermaid` 的代码块，无需新增 front matter 或 shortcode：
+
+````markdown
+```mermaid
+flowchart TD
+    A[研究问题] --> B[证据核验]
+    B --> C[形成条件性结论]
+```
+````
+
+已有文章中的 Mermaid 代码块会自动渲染；普通代码块保留原有行为。图表下方可展开源码，宽图在手机上可横向滚动。禁用 JavaScript、脚本加载失败或语法有误时仍保留源码；一个图表失败不影响同页其他图表。
+
+实现位于 `layouts/_default/_markup/render-codeblock-mermaid.html`、`layouts/partials/mermaid.html` 和 `assets/js/mermaid-render.js`。基础模板在正文渲染后判断是否需要脚本，仅含图表的页面加载。Mermaid 12.0.0 固定版本随站点托管于 `static/vendor/mermaid/12.0.0/`，不依赖第三方 CDN；使用 strict 安全模式。升级时同时更新模板路径、供应商文件及来源校验记录，并验证流程图、时序图、错误回退和移动端显示。
+
+图表需要现代浏览器和 JavaScript；Mermaid 12 的官方浏览器目标包括 Safari 17.4 及以上。参考：[Hugo Mermaid 接入](https://gohugo.io/content-management/diagrams/#mermaid-diagrams)、[Mermaid 使用说明](https://mermaid.js.org/config/usage)。

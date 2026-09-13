@@ -1201,3 +1201,35 @@ a {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Mermaid diagrams: source remains readable without JavaScript. */
+.mermaid-diagram {
+  min-width: 0;
+  margin: 28px 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+.mermaid-output {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+.mermaid-output svg {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+}
+.mermaid-source summary {
+  padding: 8px 0;
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-size: 14px;
+}
+.mermaid-source pre {
+  margin: 8px 0 0;
+}
+.mermaid-diagram .mermaid-status {
+  margin: 0 0 8px;
+  color: var(--ink-soft);
+  font-size: 14px;
+}

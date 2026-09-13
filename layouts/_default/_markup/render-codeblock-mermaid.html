@@ -1,0 +1,9 @@
+{{ .Page.Store.Set "hasMermaid" true }}
+<div class="mermaid-diagram">
+  <div class="mermaid-output" role="region" aria-label="Mermaid 图表，可横向滚动" tabindex="0" hidden></div>
+  <p class="mermaid-status" role="status" hidden></p>
+  <details class="mermaid-source" open>
+    <summary>查看图表源码</summary>
+    <pre><code>{{ .Inner | htmlEscape | safeHTML }}</code></pre>
+  </details>
+</div>
