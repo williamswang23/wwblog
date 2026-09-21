@@ -1,0 +1,32 @@
+{{- /* Opt-in protection for standalone =/- lines and < inside TeX.
+     Fenced code is matched first and left untouched. Source files are never edited. */ -}}
+{{- $text := .RenderShortcodes | string -}}
+{{- $pattern := "(?ms)<script\\b[^>]*>[\\s\\S]*?</script>|^`{3,}[^\\n]*\\n.*?^`{3,}[ \\t]*(?:\\n|$)|^~{3,}[^\\n]*\\n.*?^~{3,}[ \\t]*(?:\\n|$)|\\\\\\[[\\s\\S]*?\\\\\\]|\\\\\\([\\s\\S]*?\\\\\\)|\\$\\$[\\s\\S]*?\\$\\$" -}}
+{{- $remaining := $text -}}
+{{- $protected := "" -}}
+{{- range findRE $pattern $text -}}
+  {{- $token := . -}}
+  {{- $prefix := index (split $remaining $token) 0 -}}
+  {{- $remaining = strings.TrimPrefix $prefix $remaining -}}
+  {{- $remaining = strings.TrimPrefix $token $remaining -}}
+  {{- $replacement := $token -}}
+  {{- if or (hasPrefix $token "\\[") (hasPrefix $token "\\(") (hasPrefix $token "$$") -}}
+    {{- $escaped := $token | htmlEscape | replaceRE "\n" "&#10;" -}}
+    {{- $wrapper := printf "<div class=\"math-preserved\">%s</div>" $escaped -}}
+    {{- if hasPrefix $token "\\(" -}}
+      {{- $wrapper = printf "<span class=\"math-preserved\">%s</span>" $escaped -}}
+    {{- else -}}
+      {{- $wrapper = printf "\n\n%s\n\n" $wrapper -}}
+    {{- end -}}
+    {{- $replacement = $wrapper -}}
+  {{- end -}}
+  {{- $protected = printf "%s%s%s" $protected $prefix $replacement -}}
+{{- end -}}
+{{- $content := .RenderString (dict "display" "block") (printf "%s%s" $protected $remaining) -}}
+{{- $toc := "<nav id=\"TableOfContents\"><ul>" -}}
+{{- range findRE `(?s)<h[23] id="[^"]+">.*?</h[23]>` $content -}}
+  {{- $id := replaceRE `(?s)^<h[23] id="([^"]+)">.*` "$1" . -}}
+  {{- $label := replaceRE `(?s)<a class="heading-anchor".*?</a>` "" . | plainify -}}
+  {{- $toc = printf "%s<li><a href=\"#%s\">%s</a></li>" $toc ($id | htmlEscape) ($label | htmlEscape) -}}
+{{- end -}}
+{{- return (dict "content" $content "toc" (printf "%s</ul></nav>" $toc | safeHTML)) -}}

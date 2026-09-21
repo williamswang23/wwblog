@@ -1,5 +1,7 @@
 {{ define "main" }}
 {{ $isReport := or (eq .Section "research") (eq .Section "posts") }}
+{{ $compat := dict }}
+{{ if .Params.preserve_math_blocks }}{{ $compat = partial "preserved-math.html" . }}{{ end }}
 <article class="article">
   <header class="article-header">
     <div class="shell article-shell">
@@ -23,7 +25,7 @@
     <aside class="article-rail">
       {{ if $isReport }}
       <p class="rail-label">本页目录</p>
-      {{ .TableOfContents }}
+      {{ if $compat }}{{ $compat.toc }}{{ else }}{{ .TableOfContents }}{{ end }}
       {{ end }}
     </aside>
     <div class="article-body prose">
@@ -33,7 +35,7 @@
         <span>本文完整版本以本页为准。讨论与未来专属报告入口见文末。</span>
       </div>
       {{ end }}
-      {{ .Content }}
+      {{ if $compat }}{{ $compat.content }}{{ else }}{{ .Content }}{{ end }}
       {{ if $isReport }}
       <hr>
       <p class="article-disclaimer">本文仅用于研究交流，不构成投资建议。市场观点具有时点性，请结合原始资料与自身风险约束独立判断。</p>
