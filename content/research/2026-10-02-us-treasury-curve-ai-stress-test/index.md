@@ -11,12 +11,10 @@ tags = ["美债", "收益率曲线", "AI", "信用", "压力测试"]
 featured = false
 private = false
 content_preservation = "verbatim"
-source_sha256 = "c91927ae8b1f07977164caf59b76eb762de759de55199ac72ab48ba263aab90d"
+source_sha256 = "df60f869e0ee22c4f74a2a6d73ca51cffd8e4c6a87486fad627825df615377ac"
 +++
 
 # 美债曲线双周演变与 AI 产业压力测试
-
-> 2026 年 10 月 2 日扩展版。市场数据截止美国 10 月 1 日；延续原报告的证据截止时间，不纳入 10 月 2 日尚未公布的美国就业数据。本版增加全年双周观察，重写第五、六节；原报告单独保留。
 
 ## 核心结论
 
